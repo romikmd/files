@@ -1,6 +1,5 @@
 #!/bin/sh
 
-cd /tmp;
 
 apt-get update
 apt-get upgrade -y
