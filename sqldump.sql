@@ -1599,7 +1599,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `passwd`, `name`, `lastname`, `patronymic`, `mail`, `new_mail`, `confirm_mail`, `phone`, `confirm_phone`, `contacts`, `balance`, `wmr`, `group`, `support_info`, `level`, `ip`, `browser`, `time`, `date`, `part`, `part_money`, `security_ip`, `security_code`, `notice_help`, `notice_news`, `help`, `rental`, `extend`) VALUES
-(1, 'root', 'HASH', 'Admin', 'Admin', '', 'host@mail.ru', '', '', '', 1, '', 1000, '', 'admin', '', 1, '192.168.2.5', 'Google Chrome', 1570466553, 1511843974, 0, 0, 0, 0, 1, 1, 0, '0', '0');
+(1, 'root', 'HASH', 'Admin', 'Admin', '', 'bantus1991@mail.ru', '', '', '', 1, '', 1000, '', 'admin', '', 1, '192.168.2.5', 'Google Chrome', 1570466553, 1511843974, 0, 0, 0, 0, 1, 1, 0, '0', '0');
 
 -- --------------------------------------------------------
 
