@@ -759,7 +759,7 @@ CREATE TABLE `panel` (
 --
 
 INSERT INTO `panel` (`address`, `passwd`, `path`) VALUES
-('192.168.1.43:22', '12345', '/var/www/');
+('ipaddres:22', 'rootpass', '/var/www/');
 
 -- --------------------------------------------------------
 
@@ -1534,7 +1534,7 @@ CREATE TABLE `units` (
 --
 
 INSERT INTO `units` (`id`, `name`, `address`, `passwd`, `sql_login`, `sql_passwd`, `sql_port`, `sql_ftp`, `cs`, `cssold`, `css`, `csgo`, `samp`, `crmp`, `mta`, `mc`, `rust`, `ram`, `test`, `show`, `sort`, `domain`, `ddos`) VALUES
-(1, 'VirtualBox', '192.168.1.51:22', '12345', 'ftp', '4gjiiQs6u87gY035', 3306, 'ftp', 1, 1, 1, 1, 1, 1, 1, 1, 1, 8000, 1, 1, 1, 'test.md', 0);
+(1, 'SRV-1', 'ipaddres:22', 'rootpass', 'ftp', 'ftppasswd', 3306, 'ftp', 1, 1, 1, 1, 1, 1, 1, 1, 1, 2000, 1, 1, 1, 'test.md', 0);
 
 -- --------------------------------------------------------
 
