@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1ubuntu0.1
--- http://www.phpmyadmin.net
+-- version 4.9.4
+-- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Янв 22 2023 г., 08:31
--- Версия сервера: 5.5.62-0ubuntu0.14.04.1
--- Версия PHP: 5.5.9-1ubuntu4.29
+-- Время создания: Мар 10 2023 г., 01:10
+-- Версия сервера: 10.3.38-MariaDB-0ubuntu0.20.04.1
+-- Версия PHP: 7.0.33-65+ubuntu20.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- База данных: `egpv3`
@@ -26,14 +28,13 @@ SET time_zone = "+00:00";
 -- Структура таблицы `address`
 --
 
-CREATE TABLE IF NOT EXISTS `address` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
   `unit` int(11) NOT NULL,
   `ip` char(16) NOT NULL,
   `price` int(11) NOT NULL,
-  `buy` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `buy` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -41,13 +42,12 @@ CREATE TABLE IF NOT EXISTS `address` (
 -- Структура таблицы `address_buy`
 --
 
-CREATE TABLE IF NOT EXISTS `address_buy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `address_buy` (
+  `id` int(11) NOT NULL,
   `aid` int(11) NOT NULL,
   `server` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,11 +55,10 @@ CREATE TABLE IF NOT EXISTS `address_buy` (
 -- Структура таблицы `admins_crmp`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_crmp` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `admins_crmp` (
+  `id` int(11) NOT NULL,
+  `server` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,8 +66,8 @@ CREATE TABLE IF NOT EXISTS `admins_crmp` (
 -- Структура таблицы `admins_cs`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_cs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admins_cs` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `value` varchar(50) NOT NULL,
@@ -77,9 +76,8 @@ CREATE TABLE IF NOT EXISTS `admins_cs` (
   `type` char(3) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1261 ;
+  `info` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -87,8 +85,8 @@ CREATE TABLE IF NOT EXISTS `admins_cs` (
 -- Структура таблицы `admins_csgo`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_csgo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admins_csgo` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `value` varchar(50) NOT NULL,
@@ -97,9 +95,8 @@ CREATE TABLE IF NOT EXISTS `admins_csgo` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `admins_csgo` (
 -- Структура таблицы `admins_css`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_css` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admins_css` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `value` varchar(50) NOT NULL,
@@ -117,9 +114,8 @@ CREATE TABLE IF NOT EXISTS `admins_css` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -127,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `admins_css` (
 -- Структура таблицы `admins_cssold`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_cssold` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admins_cssold` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `value` varchar(50) NOT NULL,
@@ -137,9 +133,8 @@ CREATE TABLE IF NOT EXISTS `admins_cssold` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -147,11 +142,10 @@ CREATE TABLE IF NOT EXISTS `admins_cssold` (
 -- Структура таблицы `admins_mc`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_mc` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `admins_mc` (
+  `id` int(11) NOT NULL,
+  `server` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -159,11 +153,10 @@ CREATE TABLE IF NOT EXISTS `admins_mc` (
 -- Структура таблицы `admins_mta`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_mta` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `admins_mta` (
+  `id` int(11) NOT NULL,
+  `server` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -171,11 +164,10 @@ CREATE TABLE IF NOT EXISTS `admins_mta` (
 -- Структура таблицы `admins_rust`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_rust` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `admins_rust` (
+  `id` int(11) NOT NULL,
+  `server` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -183,11 +175,10 @@ CREATE TABLE IF NOT EXISTS `admins_rust` (
 -- Структура таблицы `admins_samp`
 --
 
-CREATE TABLE IF NOT EXISTS `admins_samp` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `admins_samp` (
+  `id` int(11) NOT NULL,
+  `server` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -195,12 +186,11 @@ CREATE TABLE IF NOT EXISTS `admins_samp` (
 -- Структура таблицы `api`
 --
 
-CREATE TABLE IF NOT EXISTS `api` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `api` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
-  `key` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `key` varchar(32) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -208,14 +198,13 @@ CREATE TABLE IF NOT EXISTS `api` (
 -- Структура таблицы `auth`
 --
 
-CREATE TABLE IF NOT EXISTS `auth` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `auth` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `ip` char(15) NOT NULL,
   `date` int(11) NOT NULL,
-  `browser` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `browser` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -223,16 +212,15 @@ CREATE TABLE IF NOT EXISTS `auth` (
 -- Структура таблицы `boost`
 --
 
-CREATE TABLE IF NOT EXISTS `boost` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `boost` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `site` varchar(20) NOT NULL,
   `circles` int(11) NOT NULL,
   `money` float NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -240,13 +228,12 @@ CREATE TABLE IF NOT EXISTS `boost` (
 -- Структура таблицы `boost_rating`
 --
 
-CREATE TABLE IF NOT EXISTS `boost_rating` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `boost_rating` (
+  `id` int(11) NOT NULL,
   `boost` varchar(15) NOT NULL,
   `rating` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `user` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -254,15 +241,14 @@ CREATE TABLE IF NOT EXISTS `boost_rating` (
 -- Структура таблицы `cashback`
 --
 
-CREATE TABLE IF NOT EXISTS `cashback` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cashback` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `purse` varchar(13) NOT NULL,
   `money` float NOT NULL,
   `date` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -270,28 +256,27 @@ CREATE TABLE IF NOT EXISTS `cashback` (
 -- Структура таблицы `control`
 --
 
-CREATE TABLE IF NOT EXISTS `control` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `address` varchar(15) NOT NULL,
   `passwd` varchar(32) NOT NULL,
   `sql_login` char(20) NOT NULL DEFAULT 'root',
   `sql_passwd` char(32) NOT NULL DEFAULT '',
-  `sql_port` int(11) NOT NULL DEFAULT '3306',
+  `sql_port` int(11) NOT NULL DEFAULT 3306,
   `sql_ftp` char(20) NOT NULL DEFAULT 'ftp',
   `time` int(11) NOT NULL,
-  `overdue` int(11) NOT NULL DEFAULT '0',
-  `block` int(11) NOT NULL DEFAULT '0',
+  `overdue` int(11) NOT NULL DEFAULT 0,
+  `block` int(11) NOT NULL DEFAULT 0,
   `date` int(11) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT '',
-  `install` tinyint(1) NOT NULL DEFAULT '0',
-  `fcpu` tinyint(1) NOT NULL DEFAULT '0',
+  `install` tinyint(1) NOT NULL DEFAULT 0,
+  `fcpu` tinyint(1) NOT NULL DEFAULT 0,
   `limit` int(11) NOT NULL,
-  `price` float NOT NULL DEFAULT '0',
-  `ram` int(11) NOT NULL DEFAULT '0',
-  `hdd` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `price` float NOT NULL DEFAULT 0,
+  `ram` int(11) NOT NULL DEFAULT 0,
+  `hdd` int(11) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -299,8 +284,8 @@ CREATE TABLE IF NOT EXISTS `control` (
 -- Структура таблицы `control_admins_cs`
 --
 
-CREATE TABLE IF NOT EXISTS `control_admins_cs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_admins_cs` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `value` varchar(50) NOT NULL,
@@ -309,9 +294,8 @@ CREATE TABLE IF NOT EXISTS `control_admins_cs` (
   `type` char(3) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `info` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -319,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `control_admins_cs` (
 -- Структура таблицы `control_admins_csgo`
 --
 
-CREATE TABLE IF NOT EXISTS `control_admins_csgo` (
+CREATE TABLE `control_admins_csgo` (
   `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
@@ -329,9 +313,8 @@ CREATE TABLE IF NOT EXISTS `control_admins_csgo` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -339,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `control_admins_csgo` (
 -- Структура таблицы `control_admins_css`
 --
 
-CREATE TABLE IF NOT EXISTS `control_admins_css` (
+CREATE TABLE `control_admins_css` (
   `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
@@ -349,9 +332,8 @@ CREATE TABLE IF NOT EXISTS `control_admins_css` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -359,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `control_admins_css` (
 -- Структура таблицы `control_admins_cssold`
 --
 
-CREATE TABLE IF NOT EXISTS `control_admins_cssold` (
+CREATE TABLE `control_admins_cssold` (
   `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
@@ -369,9 +351,8 @@ CREATE TABLE IF NOT EXISTS `control_admins_cssold` (
   `immunity` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
-  `info` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `info` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -379,16 +360,15 @@ CREATE TABLE IF NOT EXISTS `control_admins_cssold` (
 -- Структура таблицы `control_boost`
 --
 
-CREATE TABLE IF NOT EXISTS `control_boost` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_boost` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `site` varchar(20) NOT NULL,
   `circles` int(11) NOT NULL,
   `money` float NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -396,9 +376,9 @@ CREATE TABLE IF NOT EXISTS `control_boost` (
 -- Структура таблицы `control_copy`
 --
 
-CREATE TABLE IF NOT EXISTS `control_copy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` text,
+CREATE TABLE `control_copy` (
+  `id` int(11) NOT NULL,
+  `user` text DEFAULT NULL,
   `game` char(6) NOT NULL,
   `server` int(11) NOT NULL,
   `pack` varchar(100) NOT NULL,
@@ -406,9 +386,8 @@ CREATE TABLE IF NOT EXISTS `control_copy` (
   `info` varchar(100) NOT NULL,
   `plugins` text NOT NULL,
   `date` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -416,16 +395,15 @@ CREATE TABLE IF NOT EXISTS `control_copy` (
 -- Структура таблицы `control_crontab`
 --
 
-CREATE TABLE IF NOT EXISTS `control_crontab` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_crontab` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `task` char(7) NOT NULL DEFAULT '',
-  `cron` text,
-  `week` text,
+  `cron` text DEFAULT NULL,
+  `week` text DEFAULT NULL,
   `time` char(20) NOT NULL DEFAULT '',
-  `commands` text,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `commands` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -433,14 +411,13 @@ CREATE TABLE IF NOT EXISTS `control_crontab` (
 -- Структура таблицы `control_firewall`
 --
 
-CREATE TABLE IF NOT EXISTS `control_firewall` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_firewall` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `sip` char(20) NOT NULL,
   `dest` char(27) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -448,15 +425,14 @@ CREATE TABLE IF NOT EXISTS `control_firewall` (
 -- Структура таблицы `control_plugins_buy`
 --
 
-CREATE TABLE IF NOT EXISTS `control_plugins_buy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_plugins_buy` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `key` varchar(32) NOT NULL,
   `server` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -464,14 +440,13 @@ CREATE TABLE IF NOT EXISTS `control_plugins_buy` (
 -- Структура таблицы `control_plugins_install`
 --
 
-CREATE TABLE IF NOT EXISTS `control_plugins_install` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `control_plugins_install` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
-  `upd` int(11) NOT NULL DEFAULT '0',
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `upd` int(11) NOT NULL DEFAULT 0,
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -479,37 +454,36 @@ CREATE TABLE IF NOT EXISTS `control_plugins_install` (
 -- Структура таблицы `control_servers`
 --
 
-CREATE TABLE IF NOT EXISTS `control_servers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `control_servers` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT 0,
   `unit` int(11) NOT NULL,
   `address` char(21) NOT NULL,
   `game` char(6) NOT NULL,
   `slots` int(11) NOT NULL,
-  `online` int(11) NOT NULL DEFAULT '0',
-  `players` text,
+  `online` int(11) NOT NULL DEFAULT 0,
+  `players` text DEFAULT NULL,
   `status` char(10) NOT NULL,
   `name` varchar(100) NOT NULL DEFAULT 'Новый сервер',
   `pack` varchar(10) NOT NULL DEFAULT '',
-  `fps` int(11) NOT NULL DEFAULT '0',
-  `tickrate` int(11) NOT NULL DEFAULT '0',
+  `fps` int(11) NOT NULL DEFAULT 0,
+  `tickrate` int(11) NOT NULL DEFAULT 0,
   `map` varchar(100) NOT NULL DEFAULT '',
   `map_start` varchar(100) NOT NULL DEFAULT '',
-  `time_start` int(11) NOT NULL DEFAULT '0',
-  `ram_use` int(11) NOT NULL DEFAULT '0',
-  `cpu_use` int(11) NOT NULL DEFAULT '0',
-  `hdd_use` int(11) NOT NULL DEFAULT '0',
-  `core_use` int(11) NOT NULL DEFAULT '0',
-  `autorestart` int(11) NOT NULL DEFAULT '0',
-  `pingboost` int(11) NOT NULL DEFAULT '0',
-  `vac` int(11) NOT NULL DEFAULT '1',
-  `fastdl` int(11) NOT NULL DEFAULT '0',
-  `core_fix` int(11) NOT NULL DEFAULT '0',
-  `stop` tinyint(1) NOT NULL DEFAULT '0',
-  `ftp` int(11) NOT NULL DEFAULT '0',
-  `ftp_passwd` char(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time_start` int(11) NOT NULL DEFAULT 0,
+  `ram_use` int(11) NOT NULL DEFAULT 0,
+  `cpu_use` int(11) NOT NULL DEFAULT 0,
+  `hdd_use` int(11) NOT NULL DEFAULT 0,
+  `core_use` int(11) NOT NULL DEFAULT 0,
+  `autorestart` int(11) NOT NULL DEFAULT 0,
+  `pingboost` int(11) NOT NULL DEFAULT 0,
+  `vac` int(11) NOT NULL DEFAULT 1,
+  `fastdl` int(11) NOT NULL DEFAULT 0,
+  `core_fix` int(11) NOT NULL DEFAULT 0,
+  `stop` tinyint(1) NOT NULL DEFAULT 0,
+  `ftp` int(11) NOT NULL DEFAULT 0,
+  `ftp_passwd` char(20) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -517,9 +491,9 @@ CREATE TABLE IF NOT EXISTS `control_servers` (
 -- Структура таблицы `copy`
 --
 
-CREATE TABLE IF NOT EXISTS `copy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` text,
+CREATE TABLE `copy` (
+  `id` int(11) NOT NULL,
+  `user` text DEFAULT NULL,
   `game` char(6) NOT NULL,
   `server` int(11) NOT NULL,
   `pack` varchar(100) NOT NULL,
@@ -527,9 +501,8 @@ CREATE TABLE IF NOT EXISTS `copy` (
   `info` varchar(100) NOT NULL,
   `plugins` text NOT NULL,
   `date` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -537,16 +510,15 @@ CREATE TABLE IF NOT EXISTS `copy` (
 -- Структура таблицы `crontab`
 --
 
-CREATE TABLE IF NOT EXISTS `crontab` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `crontab` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `task` char(7) NOT NULL DEFAULT '',
-  `cron` text,
-  `week` text,
+  `cron` text DEFAULT NULL,
+  `week` text DEFAULT NULL,
   `time` char(20) NOT NULL DEFAULT '',
-  `commands` text,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `commands` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -554,14 +526,13 @@ CREATE TABLE IF NOT EXISTS `crontab` (
 -- Структура таблицы `firewall`
 --
 
-CREATE TABLE IF NOT EXISTS `firewall` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `firewall` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `sip` char(20) NOT NULL,
   `dest` char(27) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -569,13 +540,12 @@ CREATE TABLE IF NOT EXISTS `firewall` (
 -- Структура таблицы `graph`
 --
 
-CREATE TABLE IF NOT EXISTS `graph` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `graph` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `key` char(32) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -583,16 +553,15 @@ CREATE TABLE IF NOT EXISTS `graph` (
 -- Структура таблицы `graph_day`
 --
 
-CREATE TABLE IF NOT EXISTS `graph_day` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `graph_day` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `online` int(11) NOT NULL,
   `cpu` int(11) NOT NULL,
   `ram` int(11) NOT NULL,
   `hdd` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -600,16 +569,15 @@ CREATE TABLE IF NOT EXISTS `graph_day` (
 -- Структура таблицы `graph_hour`
 --
 
-CREATE TABLE IF NOT EXISTS `graph_hour` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `graph_hour` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `online` int(11) NOT NULL,
   `cpu` int(11) NOT NULL,
   `ram` int(11) NOT NULL,
   `hdd` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -617,8 +585,8 @@ CREATE TABLE IF NOT EXISTS `graph_hour` (
 -- Структура таблицы `help`
 --
 
-CREATE TABLE IF NOT EXISTS `help` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `help` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
   `service` int(11) NOT NULL,
@@ -627,10 +595,9 @@ CREATE TABLE IF NOT EXISTS `help` (
   `time` int(11) NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `close` int(11) NOT NULL,
-  `notice` tinyint(1) NOT NULL DEFAULT '0',
-  `notice_admin` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+  `notice` tinyint(1) NOT NULL DEFAULT 0,
+  `notice_admin` int(11) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -638,15 +605,14 @@ CREATE TABLE IF NOT EXISTS `help` (
 -- Структура таблицы `help_dialogs`
 --
 
-CREATE TABLE IF NOT EXISTS `help_dialogs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `help_dialogs` (
+  `id` int(11) NOT NULL,
   `help` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `text` varchar(1000) NOT NULL,
   `img` varchar(1000) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -654,14 +620,13 @@ CREATE TABLE IF NOT EXISTS `help_dialogs` (
 -- Структура таблицы `help_upload`
 --
 
-CREATE TABLE IF NOT EXISTS `help_upload` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `help_upload` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `name` varchar(36) NOT NULL,
   `time` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -669,15 +634,14 @@ CREATE TABLE IF NOT EXISTS `help_upload` (
 -- Структура таблицы `logs`
 --
 
-CREATE TABLE IF NOT EXISTS `logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `text` text NOT NULL,
   `date` int(11) NOT NULL,
   `type` char(10) NOT NULL,
-  `money` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+  `money` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -685,15 +649,14 @@ CREATE TABLE IF NOT EXISTS `logs` (
 -- Структура таблицы `logs_sys`
 --
 
-CREATE TABLE IF NOT EXISTS `logs_sys` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `logs_sys` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `server` int(11) NOT NULL DEFAULT '0',
-  `control` int(11) NOT NULL DEFAULT '0',
+  `server` int(11) NOT NULL DEFAULT 0,
+  `control` int(11) NOT NULL DEFAULT 0,
   `text` text NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -701,13 +664,12 @@ CREATE TABLE IF NOT EXISTS `logs_sys` (
 -- Структура таблицы `maps`
 --
 
-CREATE TABLE IF NOT EXISTS `maps` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `maps` (
+  `id` int(11) NOT NULL,
   `unit` int(11) NOT NULL,
   `game` char(10) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2381 ;
+  `name` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -715,16 +677,15 @@ CREATE TABLE IF NOT EXISTS `maps` (
 -- Структура таблицы `news`
 --
 
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `text` text NOT NULL,
   `full_text` text NOT NULL,
   `tags` varchar(100) NOT NULL,
   `views` int(11) NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `news`
@@ -732,12 +693,12 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 INSERT INTO `news` (`id`, `name`, `text`, `full_text`, `tags`, `views`, `date`) VALUES
 (1, 'HTTPS', 'Мы добавили SSL сертификат.\nТеперь наш сайт использует защищённую передачу данных между клиентом и веб-сервером.\nТакже сайт будет доступен как по HTTP так и по HTTPS.\n', '\n', 'HTTPS', 135, 1537110460),
-(2, 'Mobile Version', 'Мобильная версия сайта будет доступно по адресу &lt;a href=''http://m.real-servers.net/''&gt;http://m.real-servers.net/&lt;/a&gt;\n', 'Мобильная версия сайта будет доступно по адресу &lt;a href=''http://m.real-servers.net/''&gt;http://m.real-servers.net/&lt;/a&gt;\n', 'Mobile Version', 101, 1544262898),
+(2, 'Mobile Version', 'Мобильная версия сайта будет доступно по адресу &lt;a href=\'http://m.real-servers.net/\'&gt;http://m.real-servers.net/&lt;/a&gt;\n', 'Мобильная версия сайта будет доступно по адресу &lt;a href=\'http://m.real-servers.net/\'&gt;http://m.real-servers.net/&lt;/a&gt;\n', 'Mobile Version', 101, 1544262898),
 (3, 'Exploit  CSSv34', 'На серверах CSSv34 не предоставляется полная защита от разных типов эксплойтов (Exploit).\n', '\n', 'Exploit  CSSv34', 83, 1544988778),
 (4, 'Технические работы', 'Сегодня с 00:00 ночи до 3:00 утра будут проводиться технические работы.\n', '\n', 'Технические работы', 86, 1545413903),
 (5, 'Неполадки', 'В связи с техническими неполадками нашего провайдера пришли к мнению добавить каждому серверу по 5 дней аренды.\n', '\n', 'Неполадки', 108, 1545573267),
 (6, 'SurceTV / GOTV', 'Добавили SurceTV / GOTV для серверов Counter-Strike Source v34.\nДля подключения к SurceTV используется айпи адрес и порт.\nпример: 185.162.142.76:28028 \nЕсли ваш айпи адрес сервера: 185.162.142.76:28028\nТогда адрес SurceTV / GOTV сервера: 185.162.142.76:38028\n', 'Добавили SurceTV / GOTV для серверов Counter-Strike Source v34.\nДля подключения к SurceTV используется айпи адрес и порт.\nпример: 185.162.142.76:28028 \nЕсли ваш айпи адрес сервера: 185.162.142.76:28028\nТогда адрес SurceTV / GOTV сервера: 185.162.142.76:38028\n', 'SurceTV / GOTV', 133, 1547852004),
-(9, 'SourceBans Material Admin', 'Добавили новую систему бана &quot;SourceBans Material Admin&quot; система контроля наказаний игроков на серверах.\nПодробнее здесь &lt;a href=''https://github.com/SB-MaterialAdmin''&gt;https://github.com/SB-MaterialAdmin&lt;/a&gt;\nМожете установить её в Панель управления раздел Web\n', 'Добавили новую систему бана &quot;SourceBans Material Admin&quot; система контроля наказаний игроков на серверах.\nПодробнее здесь &lt;a href=''https://github.com/SB-MaterialAdmin''&gt;https://github.com/SB-MaterialAdmin&lt;/a&gt;\nМожете установить её в Панель управления раздел Web\n', 'CSS CSSv34 CSGO', 148, 1549141986),
+(9, 'SourceBans Material Admin', 'Добавили новую систему бана &quot;SourceBans Material Admin&quot; система контроля наказаний игроков на серверах.\nПодробнее здесь &lt;a href=\'https://github.com/SB-MaterialAdmin\'&gt;https://github.com/SB-MaterialAdmin&lt;/a&gt;\nМожете установить её в Панель управления раздел Web\n', 'Добавили новую систему бана &quot;SourceBans Material Admin&quot; система контроля наказаний игроков на серверах.\nПодробнее здесь &lt;a href=\'https://github.com/SB-MaterialAdmin\'&gt;https://github.com/SB-MaterialAdmin&lt;/a&gt;\nМожете установить её в Панель управления раздел Web\n', 'CSS CSSv34 CSGO', 148, 1549141986),
 (10, 'IP:Port', 'Пользователи которые хотят на свой сервер выделенный ip-адрес с портом на выбор или 27015 могут \nобращаться в техподдержку.\nСтоимость выделенного IP адреса 6$/месяц.\nClienții care doresc la sererul lor o ip-adresa dedicată cu portul la alegere inclusiv 27015 pot\nsă se adreseze la suport.\nCostul Ip-adresei dedicate 6$/lună\n', '\n', 'Выделенный ip-адрес, IP-adresă dedicată', 107, 1553245312);
 
 -- --------------------------------------------------------
@@ -746,15 +707,14 @@ INSERT INTO `news` (`id`, `name`, `text`, `full_text`, `tags`, `views`, `date`) 
 -- Структура таблицы `notice`
 --
 
-CREATE TABLE IF NOT EXISTS `notice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL,
   `unit` int(11) NOT NULL,
-  `server` int(11) NOT NULL DEFAULT '0',
+  `server` int(11) NOT NULL DEFAULT 0,
   `text` text NOT NULL,
   `color` char(10) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -762,14 +722,13 @@ CREATE TABLE IF NOT EXISTS `notice` (
 -- Структура таблицы `owners`
 --
 
-CREATE TABLE IF NOT EXISTS `owners` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `owners` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `rights` text NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -777,12 +736,11 @@ CREATE TABLE IF NOT EXISTS `owners` (
 -- Структура таблицы `pages`
 --
 
-CREATE TABLE IF NOT EXISTS `pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pages` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `file` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `file` varchar(32) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -790,19 +748,18 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Структура таблицы `panel`
 --
 
-CREATE TABLE IF NOT EXISTS `panel` (
+CREATE TABLE `panel` (
   `address` char(21) NOT NULL,
   `passwd` char(32) NOT NULL,
-  `path` varchar(100) NOT NULL,
-  KEY `address` (`address`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `path` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `panel`
 --
 
 INSERT INTO `panel` (`address`, `passwd`, `path`) VALUES
-('ipaddres:22', 'rootpass', '/var/www/');
+('192.168.1.43:22', '12345', '/var/www/');
 
 -- --------------------------------------------------------
 
@@ -810,14 +767,14 @@ INSERT INTO `panel` (`address`, `passwd`, `path`) VALUES
 -- Структура таблицы `plugins`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins` (
+  `id` int(11) NOT NULL,
   `cat` int(11) NOT NULL,
   `game` char(6) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `desc` text,
-  `info` text,
-  `images` text,
+  `desc` text DEFAULT NULL,
+  `info` text DEFAULT NULL,
+  `images` text DEFAULT NULL,
   `status` int(11) NOT NULL,
   `cfg` int(11) NOT NULL,
   `upd` int(11) NOT NULL,
@@ -826,9 +783,8 @@ CREATE TABLE IF NOT EXISTS `plugins` (
   `choice` varchar(100) NOT NULL DEFAULT '',
   `required` varchar(100) NOT NULL DEFAULT '',
   `packs` varchar(100) NOT NULL DEFAULT 'all',
-  `price` float NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
+  `price` float NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins`
@@ -888,7 +844,7 @@ INSERT INTO `plugins` (`id`, `cat`, `game`, `name`, `desc`, `info`, `images`, `s
 (75, 9, 'cssold', 'Anti Packets Flood 1.0.1.4', 'Anti Packets Flood - Защищает Ваш сервер от флуда пакетами.', '', '', 0, 0, 0, 3, '', '', '', 'all', 0),
 (81, 42, 'csgo', 'SourceBans Material Admin', '', '', '', 0, 1, 0, 1, '', '', '', 'all', 0),
 (82, 12, 'cssold', 'SourceBans Material Admin', '', '', '', 0, 1, 0, 1, '', '', '', 'all', 0),
-(73, 9, 'cssold', 'SMAC 3.4', 'Привет всем, многим известно, что работа SMAC''a на старой версии движка остановилась 0.8.0.4, версии повыше либо не работали абсолютно, либо с ошибками.\nЯ решил неофициально подогнать SMAC последних версий под старуху v34, и как вы можете догадаться - свершилось чудо, SMAC заработал!\nСписок изменений:\n1) Все модули были пересобраны, оптимизированы и заточены для v34\n2) Вырезан Updater из всех модулей античита, вырезано дополнение Connect и SM Rcon\n3) Принудительно запущены модули - AntiFlash, AntiNoSmoke и CSSFixes\n4) В модуль Command Monitor добавлено около десятка детектов Lua скриптов и интегрирован AntiHLDJ/HLSS\n5) И многое другое...', '', '', 0, 0, 0, 3, '', '', '', 'all', 0);
+(73, 9, 'cssold', 'SMAC 3.4', 'Привет всем, многим известно, что работа SMAC\'a на старой версии движка остановилась 0.8.0.4, версии повыше либо не работали абсолютно, либо с ошибками.\nЯ решил неофициально подогнать SMAC последних версий под старуху v34, и как вы можете догадаться - свершилось чудо, SMAC заработал!\nСписок изменений:\n1) Все модули были пересобраны, оптимизированы и заточены для v34\n2) Вырезан Updater из всех модулей античита, вырезано дополнение Connect и SM Rcon\n3) Принудительно запущены модули - AntiFlash, AntiNoSmoke и CSSFixes\n4) В модуль Command Monitor добавлено около десятка детектов Lua скриптов и интегрирован AntiHLDJ/HLSS\n5) И многое другое...', '', '', 0, 0, 0, 3, '', '', '', 'all', 0);
 
 -- --------------------------------------------------------
 
@@ -896,15 +852,14 @@ INSERT INTO `plugins` (`id`, `cat`, `game`, `name`, `desc`, `info`, `images`, `s
 -- Структура таблицы `plugins_buy`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_buy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_buy` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `key` varchar(32) NOT NULL,
   `server` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -912,13 +867,12 @@ CREATE TABLE IF NOT EXISTS `plugins_buy` (
 -- Структура таблицы `plugins_category`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_category` (
+  `id` int(11) NOT NULL,
   `game` char(6) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `sort` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+  `sort` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins_category`
@@ -944,15 +898,14 @@ INSERT INTO `plugins_category` (`id`, `game`, `name`, `sort`) VALUES
 -- Структура таблицы `plugins_clear`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_clear` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_clear` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
   `text` varchar(200) NOT NULL,
   `file` varchar(100) NOT NULL,
-  `regex` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
+  `regex` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins_clear`
@@ -1013,14 +966,13 @@ INSERT INTO `plugins_clear` (`id`, `plugin`, `update`, `text`, `file`, `regex`) 
 -- Структура таблицы `plugins_config`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_config` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_config` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
   `file` varchar(100) NOT NULL,
-  `sort` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
+  `sort` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins_config`
@@ -1086,13 +1038,12 @@ INSERT INTO `plugins_config` (`id`, `plugin`, `update`, `file`, `sort`) VALUES
 -- Структура таблицы `plugins_delete`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_delete` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_delete` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `file` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1100,13 +1051,12 @@ CREATE TABLE IF NOT EXISTS `plugins_delete` (
 -- Структура таблицы `plugins_delete_ins`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_delete_ins` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_delete_ins` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
-  `install` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `install` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1114,14 +1064,46 @@ CREATE TABLE IF NOT EXISTS `plugins_delete_ins` (
 -- Структура таблицы `plugins_install`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_install` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_install` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
-  `upd` int(11) NOT NULL DEFAULT '0',
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1967 ;
+  `upd` int(11) NOT NULL DEFAULT 0,
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Дамп данных таблицы `plugins_install`
+--
+
+INSERT INTO `plugins_install` (`id`, `server`, `plugin`, `upd`, `time`) VALUES
+(992, 194, 40, 0, 1535824307),
+(991, 194, 58, 0, 1535823794),
+(990, 194, 50, 0, 1535823771),
+(989, 194, 36, 0, 1535823758),
+(988, 194, 32, 0, 1535823750),
+(987, 194, 62, 0, 1535823694),
+(1062, 203, 35, 0, 1536518860),
+(1051, 195, 1, 0, 1536330964),
+(966, 188, 1, 0, 1535430526),
+(1061, 203, 38, 0, 1536518847),
+(1060, 203, 1, 0, 1536518821),
+(1059, 203, 29, 0, 1536517614),
+(1058, 203, 17, 0, 1536517610),
+(1057, 203, 16, 0, 1536517607),
+(1050, 195, 49, 0, 1536326442),
+(1049, 195, 40, 0, 1536326424),
+(1048, 195, 38, 0, 1536326421),
+(1047, 195, 28, 0, 1536326359),
+(1056, 203, 14, 0, 1536517600),
+(1045, 195, 15, 0, 1536326351),
+(1044, 195, 14, 0, 1536326348),
+(1043, 195, 12, 0, 1536326343),
+(1042, 195, 11, 0, 1536326341),
+(1652, 153, 68, 0, 1555945340),
+(1653, 153, 73, 0, 1555945351),
+(1714, 146, 73, 0, 1557055216),
+(1713, 146, 68, 0, 1557055209);
 
 -- --------------------------------------------------------
 
@@ -1129,13 +1111,13 @@ CREATE TABLE IF NOT EXISTS `plugins_install` (
 -- Структура таблицы `plugins_update`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_update` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_update` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `desc` text,
-  `info` text,
-  `images` text,
+  `desc` text DEFAULT NULL,
+  `info` text DEFAULT NULL,
+  `images` text DEFAULT NULL,
   `status` int(11) NOT NULL,
   `cfg` int(11) NOT NULL,
   `upd` int(11) NOT NULL,
@@ -1143,9 +1125,8 @@ CREATE TABLE IF NOT EXISTS `plugins_update` (
   `choice` varchar(100) NOT NULL DEFAULT '',
   `required` varchar(100) NOT NULL DEFAULT '',
   `packs` varchar(100) NOT NULL DEFAULT '',
-  `price` float NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `price` float NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1153,15 +1134,14 @@ CREATE TABLE IF NOT EXISTS `plugins_update` (
 -- Структура таблицы `plugins_write`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_write` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_write` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
   `file` varchar(100) NOT NULL,
-  `top` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=116 ;
+  `top` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins_write`
@@ -1223,15 +1203,14 @@ INSERT INTO `plugins_write` (`id`, `plugin`, `update`, `text`, `file`, `top`) VA
 -- Структура таблицы `plugins_write_del`
 --
 
-CREATE TABLE IF NOT EXISTS `plugins_write_del` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `plugins_write_del` (
+  `id` int(11) NOT NULL,
   `plugin` int(11) NOT NULL,
   `update` int(11) NOT NULL,
   `text` varchar(100) NOT NULL,
   `file` varchar(100) NOT NULL,
-  `top` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `top` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `plugins_write_del`
@@ -1246,12 +1225,11 @@ INSERT INTO `plugins_write_del` (`id`, `plugin`, `update`, `text`, `file`, `top`
 -- Структура таблицы `privileges`
 --
 
-CREATE TABLE IF NOT EXISTS `privileges` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `privileges` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `active` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1259,8 +1237,8 @@ CREATE TABLE IF NOT EXISTS `privileges` (
 -- Структура таблицы `privileges_buy`
 --
 
-CREATE TABLE IF NOT EXISTS `privileges_buy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `privileges_buy` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `text` text NOT NULL,
   `sql` text NOT NULL,
@@ -1268,9 +1246,8 @@ CREATE TABLE IF NOT EXISTS `privileges_buy` (
   `key` varchar(32) NOT NULL,
   `date` int(11) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `status` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1278,15 +1255,14 @@ CREATE TABLE IF NOT EXISTS `privileges_buy` (
 -- Структура таблицы `privileges_list`
 --
 
-CREATE TABLE IF NOT EXISTS `privileges_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `privileges_list` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `flags` varchar(50) NOT NULL,
-  `immunity` int(11) NOT NULL DEFAULT '0',
-  `data` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `immunity` int(11) NOT NULL DEFAULT 0,
+  `data` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1294,8 +1270,8 @@ CREATE TABLE IF NOT EXISTS `privileges_list` (
 -- Структура таблицы `promo`
 --
 
-CREATE TABLE IF NOT EXISTS `promo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `promo` (
+  `id` int(11) NOT NULL,
   `cod` char(20) NOT NULL,
   `value` char(4) NOT NULL,
   `discount` tinyint(1) NOT NULL,
@@ -1306,9 +1282,8 @@ CREATE TABLE IF NOT EXISTS `promo` (
   `tarif` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `server` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1316,13 +1291,12 @@ CREATE TABLE IF NOT EXISTS `promo` (
 -- Структура таблицы `promo_use`
 --
 
-CREATE TABLE IF NOT EXISTS `promo_use` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `promo_use` (
+  `id` int(11) NOT NULL,
   `promo` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1330,14 +1304,13 @@ CREATE TABLE IF NOT EXISTS `promo_use` (
 -- Структура таблицы `recovery`
 --
 
-CREATE TABLE IF NOT EXISTS `recovery` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recovery` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `mail` char(50) NOT NULL,
   `key` char(32) NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1345,13 +1318,12 @@ CREATE TABLE IF NOT EXISTS `recovery` (
 -- Структура таблицы `security`
 --
 
-CREATE TABLE IF NOT EXISTS `security` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `security` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `address` char(20) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1359,70 +1331,69 @@ CREATE TABLE IF NOT EXISTS `security` (
 -- Структура таблицы `servers`
 --
 
-CREATE TABLE IF NOT EXISTS `servers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `unit` int(11) NOT NULL DEFAULT '0',
-  `tarif` int(11) NOT NULL DEFAULT '0',
-  `user` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `servers` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT 0,
+  `unit` int(11) NOT NULL DEFAULT 0,
+  `tarif` int(11) NOT NULL DEFAULT 0,
+  `user` int(11) NOT NULL DEFAULT 0,
   `address` char(21) NOT NULL DEFAULT '',
-  `port` int(11) NOT NULL DEFAULT '0',
+  `port` int(11) NOT NULL DEFAULT 0,
   `game` char(6) NOT NULL DEFAULT '',
-  `slots` int(11) NOT NULL DEFAULT '0',
-  `slots_start` int(11) NOT NULL DEFAULT '0',
-  `online` int(11) NOT NULL DEFAULT '0',
-  `players` text,
+  `slots` int(11) NOT NULL DEFAULT 0,
+  `slots_start` int(11) NOT NULL DEFAULT 0,
+  `online` int(11) NOT NULL DEFAULT 0,
+  `players` text DEFAULT NULL,
   `status` char(10) NOT NULL DEFAULT '',
   `name` varchar(100) NOT NULL DEFAULT '',
   `pack` varchar(50) NOT NULL DEFAULT '',
-  `plugins_use` tinyint(1) NOT NULL DEFAULT '0',
-  `console_use` tinyint(1) NOT NULL DEFAULT '0',
-  `stats_use` tinyint(1) NOT NULL DEFAULT '0',
-  `copy_use` tinyint(1) NOT NULL DEFAULT '0',
-  `web_use` tinyint(1) NOT NULL DEFAULT '0',
-  `ftp_use` tinyint(1) NOT NULL DEFAULT '0',
-  `ftp` tinyint(1) NOT NULL DEFAULT '0',
-  `ftp_root` tinyint(1) NOT NULL DEFAULT '1',
+  `plugins_use` tinyint(1) NOT NULL DEFAULT 0,
+  `console_use` tinyint(1) NOT NULL DEFAULT 0,
+  `stats_use` tinyint(1) NOT NULL DEFAULT 0,
+  `copy_use` tinyint(1) NOT NULL DEFAULT 0,
+  `web_use` tinyint(1) NOT NULL DEFAULT 0,
+  `ftp_use` tinyint(1) NOT NULL DEFAULT 0,
+  `ftp` tinyint(1) NOT NULL DEFAULT 0,
+  `ftp_root` tinyint(1) NOT NULL DEFAULT 1,
   `ftp_passwd` char(20) NOT NULL DEFAULT '',
-  `ftp_on` tinyint(1) NOT NULL DEFAULT '0',
-  `fps` int(11) NOT NULL DEFAULT '0',
-  `tickrate` int(11) NOT NULL DEFAULT '0',
-  `ram` int(11) NOT NULL DEFAULT '0',
-  `ram_use` int(11) NOT NULL DEFAULT '0',
-  `ram_use_max` int(11) NOT NULL DEFAULT '0',
-  `ram_fix` tinyint(1) NOT NULL DEFAULT '0',
+  `ftp_on` tinyint(1) NOT NULL DEFAULT 0,
+  `fps` int(11) NOT NULL DEFAULT 0,
+  `tickrate` int(11) NOT NULL DEFAULT 0,
+  `ram` int(11) NOT NULL DEFAULT 0,
+  `ram_use` int(11) NOT NULL DEFAULT 0,
+  `ram_use_max` int(11) NOT NULL DEFAULT 0,
+  `ram_fix` tinyint(1) NOT NULL DEFAULT 0,
   `map` varchar(100) NOT NULL DEFAULT '',
   `map_start` varchar(100) NOT NULL DEFAULT '',
-  `vac` tinyint(1) NOT NULL DEFAULT '0',
-  `tv` tinyint(1) NOT NULL DEFAULT '0',
-  `fastdl` int(11) NOT NULL DEFAULT '0',
-  `pingboost` int(11) NOT NULL DEFAULT '0',
-  `cpu` int(11) NOT NULL DEFAULT '0',
-  `cpu_use` int(11) NOT NULL DEFAULT '0',
-  `cpu_use_max` int(11) NOT NULL DEFAULT '0',
-  `core_fix` int(11) NOT NULL DEFAULT '0',
-  `core_fix_one` tinyint(1) NOT NULL DEFAULT '0',
-  `core_use` int(11) NOT NULL DEFAULT '0',
-  `hdd` int(11) NOT NULL DEFAULT '0',
-  `hdd_use` int(11) NOT NULL DEFAULT '0',
-  `time` int(11) NOT NULL DEFAULT '0',
-  `date` int(11) NOT NULL DEFAULT '0',
-  `overdue` int(11) NOT NULL DEFAULT '0',
-  `block` int(11) NOT NULL DEFAULT '0',
-  `test` tinyint(1) NOT NULL DEFAULT '0',
-  `stop` tinyint(1) NOT NULL DEFAULT '0',
-  `autostop` tinyint(1) NOT NULL DEFAULT '0',
-  `time_start` int(11) NOT NULL DEFAULT '0',
-  `reinstall` int(11) NOT NULL DEFAULT '0',
-  `update` int(11) NOT NULL DEFAULT '0',
-  `benefit` int(11) NOT NULL DEFAULT '0',
-  `autorestart` tinyint(1) NOT NULL DEFAULT '0',
-  `sms` tinyint(1) NOT NULL DEFAULT '0',
-  `mail` tinyint(1) NOT NULL DEFAULT '0',
-  `ddos` tinyint(1) NOT NULL DEFAULT '0',
-  `rcon` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `vac` tinyint(1) NOT NULL DEFAULT 0,
+  `tv` tinyint(1) NOT NULL DEFAULT 0,
+  `fastdl` int(11) NOT NULL DEFAULT 0,
+  `pingboost` int(11) NOT NULL DEFAULT 0,
+  `cpu` int(11) NOT NULL DEFAULT 0,
+  `cpu_use` int(11) NOT NULL DEFAULT 0,
+  `cpu_use_max` int(11) NOT NULL DEFAULT 0,
+  `core_fix` int(11) NOT NULL DEFAULT 0,
+  `core_fix_one` tinyint(1) NOT NULL DEFAULT 0,
+  `core_use` int(11) NOT NULL DEFAULT 0,
+  `hdd` int(11) NOT NULL DEFAULT 0,
+  `hdd_use` int(11) NOT NULL DEFAULT 0,
+  `time` int(11) NOT NULL DEFAULT 0,
+  `date` int(11) NOT NULL DEFAULT 0,
+  `overdue` int(11) NOT NULL DEFAULT 0,
+  `block` int(11) NOT NULL DEFAULT 0,
+  `test` tinyint(1) NOT NULL DEFAULT 0,
+  `stop` tinyint(1) NOT NULL DEFAULT 0,
+  `autostop` tinyint(1) NOT NULL DEFAULT 0,
+  `time_start` int(11) NOT NULL DEFAULT 0,
+  `reinstall` int(11) NOT NULL DEFAULT 0,
+  `update` int(11) NOT NULL DEFAULT 0,
+  `benefit` int(11) NOT NULL DEFAULT 0,
+  `autorestart` tinyint(1) NOT NULL DEFAULT 0,
+  `sms` tinyint(1) NOT NULL DEFAULT 0,
+  `mail` tinyint(1) NOT NULL DEFAULT 0,
+  `ddos` tinyint(1) NOT NULL DEFAULT 0,
+  `rcon` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1430,14 +1401,13 @@ CREATE TABLE IF NOT EXISTS `servers` (
 -- Структура таблицы `signup`
 --
 
-CREATE TABLE IF NOT EXISTS `signup` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `signup` (
+  `id` int(11) NOT NULL,
   `mail` char(50) NOT NULL,
   `key` char(32) NOT NULL,
   `data` text NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1445,8 +1415,8 @@ CREATE TABLE IF NOT EXISTS `signup` (
 -- Структура таблицы `tarifs`
 --
 
-CREATE TABLE IF NOT EXISTS `tarifs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tarifs` (
+  `id` int(11) NOT NULL,
   `unit` int(11) NOT NULL,
   `game` char(8) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -1462,45 +1432,44 @@ CREATE TABLE IF NOT EXISTS `tarifs` (
   `fps` varchar(100) NOT NULL,
   `tickrate` varchar(100) NOT NULL,
   `ram` varchar(100) NOT NULL,
-  `param_fix` tinyint(1) NOT NULL DEFAULT '0',
+  `param_fix` tinyint(1) NOT NULL DEFAULT 0,
   `time` varchar(100) NOT NULL,
   `timext` varchar(100) NOT NULL,
   `test` int(11) NOT NULL,
   `tests` int(11) NOT NULL,
   `discount` tinyint(1) NOT NULL,
   `map` varchar(50) NOT NULL,
-  `ftp` tinyint(1) NOT NULL DEFAULT '0',
-  `plugins` tinyint(1) NOT NULL DEFAULT '0',
-  `console` tinyint(1) NOT NULL DEFAULT '0',
-  `stats` tinyint(1) NOT NULL DEFAULT '0',
-  `copy` tinyint(1) NOT NULL DEFAULT '0',
-  `web` tinyint(1) NOT NULL DEFAULT '0',
+  `ftp` tinyint(1) NOT NULL DEFAULT 0,
+  `plugins` tinyint(1) NOT NULL DEFAULT 0,
+  `console` tinyint(1) NOT NULL DEFAULT 0,
+  `stats` tinyint(1) NOT NULL DEFAULT 0,
+  `copy` tinyint(1) NOT NULL DEFAULT 0,
+  `web` tinyint(1) NOT NULL DEFAULT 0,
   `plugins_install` text NOT NULL,
   `hdd` int(11) NOT NULL,
   `autostop` tinyint(1) NOT NULL,
-  `price` text,
+  `price` text DEFAULT NULL,
   `core_fix` varchar(100) NOT NULL DEFAULT '',
-  `ip` text,
+  `ip` text DEFAULT NULL,
   `show` tinyint(1) NOT NULL,
-  `sort` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+  `sort` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `tarifs`
 --
 
 INSERT INTO `tarifs` (`id`, `unit`, `game`, `name`, `slots_min`, `slots_max`, `port_min`, `port_max`, `hostname`, `packs`, `path`, `install`, `update`, `fps`, `tickrate`, `ram`, `param_fix`, `time`, `timext`, `test`, `tests`, `discount`, `map`, `ftp`, `plugins`, `console`, `stats`, `copy`, `web`, `plugins_install`, `hdd`, `autostop`, `price`, `core_fix`, `ip`, `show`, `sort`) VALUES
-(1, 1, 'cs', 'Public SSD', 12, 32, 27010, 27056, 'Real-Servers.Net CS1.6', 'eyJyZWhsZHMiOiJSZUhMRFMgMy4wIiwiaGxkczgxNzciOiJITERTIDgxNzcifQ==', '/path/cs/', '/servers/', '/path/steam/', '500:1000', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2x2', 1, 1, 1, 1, 1, 1, '', 2048, 0, '0.20:0.25', '', '', 1, 1),
-(2, 1, 'cs', 'CW/MIX SSD', 12, 14, 27011, 27055, 'Real-Servers.Net CS1.6', 'eyJjdyI6IlJlSExEUy1DV1wvTUlYIn0=', '/path/cs/', '/servers/', '/path/steam/', '1000', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 2048, 0, '0.10', '', '', 1, 5),
-(4, 1, 'cssold', 'Public SSD', 12, 64, 28012, 28086, 'Real-Servers.Net CSSv34', 'eyJub25zdGVhbSI6Ik5vblN0ZWFtIn0=', '/path/cssold/', '/servers/', '/path/steam/', '500:1000', '66:100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, 'eyI2Nl81MDAiOiIwLjI1IiwiMTAwXzUwMCI6IjAuMzUiLCI2Nl8xMDAwIjoiMC4zMCIsIjEwMF8xMDAwIjoiMC40MCJ9', '', '', 1, 1),
-(5, 1, 'cssold', 'CW/MIX SSD', 12, 14, 28019, 28096, 'Real-Servers.Net CSSv34', 'eyJub25zdGVhbSI6Ik5vblN0ZWFtIn0=', '/path/cssold/', '/servers/', '/path/steam/', '1000', '100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, 'eyIxMDBfMTAwMCI6IjAuMzAifQ==', '', '', 1, 3),
-(6, 1, 'css', 'Public SSD', 12, 64, 28013, 28087, 'Real-Servers.Net CSS', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/css/', '/servers/', '/path/steam/', '1000', '66:100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, '0.25:0.35', '', '', 1, 1),
-(16, 1, 'csgo', 'Public SSD', 12, 64, 27025, 27999, 'Real-Servers.Net CSGO', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/csgo/', '/servers/', '/path/update/', '0', '64:128', '0', 0, '30:60:90', '10:30:60:90', 0, 0, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 30720, 0, '0.40:0.50', '', '', 1, 1),
-(8, 1, 'css', 'CW/MIX SSD', 12, 14, 28018, 28056, 'Real-Servers.Net CSS', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/css/', '/servers/', '/path/steam/', '1000', '100', '0', 0, '30:60:90', '10:30:60:90', 0, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 1, '0.15', '', '', 1, 1),
-(9, 1, 'samp', 'SAMP SSD', 20, 100, 7778, 7858, 'Real-Servers.Net SAMP', 'eyJzYW1wMDM3UjIiOiJzYW1wMDM3UjIiLCJzYW1wMDNhIjoic2FtcDAzYSIsInNhbXAwM2IiOiJzYW1wMDNiIiwic2FtcDAzYyI6InNhbXAwM2MiLCJzYW1wMDNkIjoic2FtcDAzZCIsInNhbXAwM2UiOiJzYW1wMDNlIiwic2FtcDAzZTIiOiJzYW1wMDNlMiIsInNhbXAwM3giOiJzYW1wMDN4Iiwic2FtcDAzeiI6InNhbXAwM3oifQ==', '/path/samp/', '/servers/', '/path/steam/', '0', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'samp', 1, 1, 1, 1, 1, 1, '', 1024, 0, '0.05', '', '', 1, 1),
-(19, 1, 'mc', 'MC SSD', 10, 50, 25566, 25606, 'Real-Servers.Net MC', 'eyJtYzExMiI6Ik1DLTEuMTIiLCJtYzEzIjoiTUMtMS4zIn0=', '/path/mc/', '/servers/', '/path/update/', '0', '0', '50', 0, '30:60:90', '10:30:60:90', 1, 5, 1, '', 1, 1, 1, 1, 1, 1, '', 500, 0, '0.50', '', '', 1, 1),
-(34, 1, 'rust', 'Resurce', 200, 200, 28010, 28055, 'Rust', 'eyJidWlsZCI6IlN0ZWFtIn0=', '/path/rust/', '/servers/', '/path/update/', '', '10', '8000', 1, '30:60:90', '30:60:90', 0, 1, 0, '', 1, 0, 1, 1, 1, 1, '', 10000, 0, '0.15', '1,2,3,4,5', '', 1, 1);
+(1, 1, 'cs', 'Public SSD', 12, 32, 27010, 27056, 'Default CS1.6', 'eyJyZWhsZHMiOiJSZUhMRFMgMy4wIiwiaGxkczgxNzciOiJITERTIDgxNzcifQ==', '/path/cs/', '/servers/', '/path/steam/', '500:1000', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2x2', 1, 1, 1, 1, 1, 1, '', 2048, 0, '0.20:0.25', '', '', 1, 1),
+(2, 1, 'cs', 'CW/MIX SSD', 12, 14, 27011, 27055, 'Default CS1.6', 'eyJjdyI6IlJlSExEUy1DV1wvTUlYIn0=', '/path/cs/', '/servers/', '/path/steam/', '1000', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 2048, 0, '0.10', '', '', 1, 5),
+(3, 1, 'cssold', 'Public SSD', 12, 64, 28012, 28086, 'Default CSSv34', 'eyJub25zdGVhbSI6Ik5vblN0ZWFtIn0=', '/path/cssold/', '/servers/', '/path/steam/', '500:1000', '66:100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, 'eyI2Nl81MDAiOiIwLjI1IiwiMTAwXzUwMCI6IjAuMzUiLCI2Nl8xMDAwIjoiMC4zMCIsIjEwMF8xMDAwIjoiMC40MCJ9', '', '', 1, 1),
+(4, 1, 'cssold', 'CW/MIX SSD', 12, 14, 28019, 28096, 'Default CSSv34', 'eyJub25zdGVhbSI6Ik5vblN0ZWFtIn0=', '/path/cssold/', '/servers/', '/path/steam/', '1000', '100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, 'eyIxMDBfMTAwMCI6IjAuMzAifQ==', '', '', 1, 3),
+(5, 1, 'css', 'Public SSD', 12, 64, 28013, 28087, 'Default CSS', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/css/', '/servers/', '/path/steam/', '1000', '66:100', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 0, '0.25:0.35', '', '', 1, 1),
+(6, 1, 'css', 'CW/MIX SSD', 12, 14, 28018, 28056, 'Default CSS', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/css/', '/servers/', '/path/steam/', '1000', '100', '0', 0, '30:60:90', '10:30:60:90', 0, 50, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 5120, 1, '0.15', '', '', 1, 1),
+(7, 1, 'csgo', 'Public SSD', 12, 64, 27025, 27999, 'Default CSGO', 'eyJzdGVhbSI6IlN0ZWFtIn0=', '/path/csgo/', '/servers/', '/path/update/', '0', '64:128', '0', 0, '30:60:90', '10:30:60:90', 0, 0, 1, 'de_dust2', 1, 1, 1, 1, 1, 1, '', 30720, 0, '0.40:0.50', '', '', 1, 1),
+(8, 1, 'samp', 'SAMP SSD', 20, 100, 7778, 7858, 'Default SAMP', 'eyJzYW1wMDM3UjIiOiJzYW1wMDM3UjIiLCJzYW1wMDNhIjoic2FtcDAzYSIsInNhbXAwM2IiOiJzYW1wMDNiIiwic2FtcDAzYyI6InNhbXAwM2MiLCJzYW1wMDNkIjoic2FtcDAzZCIsInNhbXAwM2UiOiJzYW1wMDNlIiwic2FtcDAzZTIiOiJzYW1wMDNlMiIsInNhbXAwM3giOiJzYW1wMDN4Iiwic2FtcDAzeiI6InNhbXAwM3oifQ==', '/path/samp/', '/servers/', '/path/steam/', '0', '0', '0', 0, '30:60:90', '10:30:60:90', 1, 50, 1, 'samp', 1, 1, 1, 1, 1, 1, '', 1024, 0, '0.05', '', '', 1, 1),
+(9, 1, 'mc', 'MC SSD', 10, 50, 25566, 25606, 'Default MC', 'eyJtYzExMiI6Ik1DLTEuMTIiLCJtYzEzIjoiTUMtMS4zIn0=', '/path/mc/', '/servers/', '/path/update/', '0', '0', '50', 0, '30:60:90', '10:30:60:90', 1, 5, 1, '', 1, 1, 1, 1, 1, 1, '', 500, 0, '0.50', '', '', 1, 1),
+(10, 1, 'rust', 'Resurce', 200, 200, 28010, 28055, 'Default Rust', 'eyJidWlsZCI6IlN0ZWFtIn0=', '/path/rust/', '/servers/', '/path/update/', '', '10', '8000', 1, '30:60:90', '30:60:90', 0, 1, 0, '', 1, 0, 1, 1, 1, 1, '', 10000, 0, '0.15', '1,2,3,4,5', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1508,11 +1477,10 @@ INSERT INTO `tarifs` (`id`, `unit`, `game`, `name`, `slots_min`, `slots_max`, `p
 -- Структура таблицы `test`
 --
 
-CREATE TABLE IF NOT EXISTS `test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1520,15 +1488,14 @@ CREATE TABLE IF NOT EXISTS `test` (
 -- Структура таблицы `tests`
 --
 
-CREATE TABLE IF NOT EXISTS `tests` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tests` (
+  `id` int(11) NOT NULL,
   `server` int(11) NOT NULL,
   `unit` int(11) NOT NULL,
   `game` char(6) NOT NULL,
   `user` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1536,8 +1503,8 @@ CREATE TABLE IF NOT EXISTS `tests` (
 -- Структура таблицы `units`
 --
 
-CREATE TABLE IF NOT EXISTS `units` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `units` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `address` char(21) NOT NULL,
   `passwd` char(32) NOT NULL,
@@ -1545,30 +1512,29 @@ CREATE TABLE IF NOT EXISTS `units` (
   `sql_passwd` char(32) NOT NULL,
   `sql_port` int(11) NOT NULL,
   `sql_ftp` char(20) NOT NULL,
-  `cs` tinyint(1) NOT NULL DEFAULT '0',
-  `cssold` tinyint(1) NOT NULL DEFAULT '0',
-  `css` tinyint(1) NOT NULL DEFAULT '0',
-  `csgo` tinyint(1) NOT NULL DEFAULT '0',
-  `samp` tinyint(1) NOT NULL DEFAULT '0',
-  `crmp` tinyint(1) NOT NULL DEFAULT '0',
-  `mta` tinyint(1) NOT NULL DEFAULT '0',
-  `mc` tinyint(1) NOT NULL DEFAULT '0',
-  `rust` tinyint(1) NOT NULL DEFAULT '0',
+  `cs` tinyint(1) NOT NULL DEFAULT 0,
+  `cssold` tinyint(1) NOT NULL DEFAULT 0,
+  `css` tinyint(1) NOT NULL DEFAULT 0,
+  `csgo` tinyint(1) NOT NULL DEFAULT 0,
+  `samp` tinyint(1) NOT NULL DEFAULT 0,
+  `crmp` tinyint(1) NOT NULL DEFAULT 0,
+  `mta` tinyint(1) NOT NULL DEFAULT 0,
+  `mc` tinyint(1) NOT NULL DEFAULT 0,
+  `rust` tinyint(1) NOT NULL DEFAULT 0,
   `ram` int(11) NOT NULL,
   `test` int(11) NOT NULL,
   `show` tinyint(1) NOT NULL,
   `sort` int(11) NOT NULL,
-  `domain` varchar(40) NOT NULL DEFAULT '',
-  `ddos` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `domain` varchar(40) NOT NULL DEFAULT 'host.game',
+  `ddos` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `units`
 --
 
 INSERT INTO `units` (`id`, `name`, `address`, `passwd`, `sql_login`, `sql_passwd`, `sql_port`, `sql_ftp`, `cs`, `cssold`, `css`, `csgo`, `samp`, `crmp`, `mta`, `mc`, `rust`, `ram`, `test`, `show`, `sort`, `domain`, `ddos`) VALUES
-(1, 'SRV-1', 'ipaddres:22', 'rootpass', 'ftp', 'ftppasswd', 3306, 'ftp', 1, 1, 1, 1, 1, 1, 1, 1, 1, 8000, 1, 1, 1, 'game.com', 0);
+(1, 'VirtualBox', '192.168.1.51:22', '12345', 'ftp', '4gjiiQs6u87gY035', 3306, 'ftp', 1, 1, 1, 1, 1, 1, 1, 1, 1, 8000, 1, 1, 1, 'test.md', 0);
 
 -- --------------------------------------------------------
 
@@ -1576,8 +1542,8 @@ INSERT INTO `units` (`id`, `name`, `address`, `passwd`, `sql_login`, `sql_passwd
 -- Структура таблицы `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `login` char(15) NOT NULL,
   `passwd` char(32) NOT NULL,
   `name` char(32) NOT NULL,
@@ -1587,35 +1553,34 @@ CREATE TABLE IF NOT EXISTS `users` (
   `new_mail` char(50) NOT NULL DEFAULT '',
   `confirm_mail` char(32) NOT NULL DEFAULT '',
   `phone` char(12) NOT NULL,
-  `confirm_phone` int(6) NOT NULL DEFAULT '0',
+  `confirm_phone` int(6) NOT NULL DEFAULT 0,
   `contacts` varchar(100) NOT NULL,
   `balance` float NOT NULL,
   `wmr` char(13) NOT NULL DEFAULT '',
   `group` char(7) NOT NULL,
   `support_info` varchar(50) NOT NULL DEFAULT '',
-  `level` int(11) NOT NULL DEFAULT '0',
+  `level` int(11) NOT NULL DEFAULT 0,
   `ip` char(16) NOT NULL DEFAULT '',
   `browser` char(20) NOT NULL DEFAULT '',
-  `time` int(11) NOT NULL DEFAULT '0',
+  `time` int(11) NOT NULL DEFAULT 0,
   `date` int(11) NOT NULL,
-  `part` int(11) NOT NULL DEFAULT '0',
-  `part_money` float NOT NULL DEFAULT '0',
-  `security_ip` tinyint(1) NOT NULL DEFAULT '0',
-  `security_code` tinyint(1) NOT NULL DEFAULT '0',
-  `notice_help` tinyint(1) NOT NULL DEFAULT '0',
-  `notice_news` tinyint(1) NOT NULL DEFAULT '1',
-  `help` tinyint(1) NOT NULL DEFAULT '0',
+  `part` int(11) NOT NULL DEFAULT 0,
+  `part_money` float NOT NULL DEFAULT 0,
+  `security_ip` tinyint(1) NOT NULL DEFAULT 0,
+  `security_code` tinyint(1) NOT NULL DEFAULT 0,
+  `notice_help` tinyint(1) NOT NULL DEFAULT 0,
+  `notice_news` tinyint(1) NOT NULL DEFAULT 1,
+  `help` tinyint(1) NOT NULL DEFAULT 0,
   `rental` varchar(4) NOT NULL DEFAULT '0',
-  `extend` varchar(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=305 ;
+  `extend` varchar(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `passwd`, `name`, `lastname`, `patronymic`, `mail`, `new_mail`, `confirm_mail`, `phone`, `confirm_phone`, `contacts`, `balance`, `wmr`, `group`, `support_info`, `level`, `ip`, `browser`, `time`, `date`, `part`, `part_money`, `security_ip`, `security_code`, `notice_help`, `notice_news`, `help`, `rental`, `extend`) VALUES
-(1, 'root', 'ENGINEGPHASH', 'Admin', 'Admin', '', 'host@mail.ru', '', '', '', 1, '', 1000000000000, '', 'admin', '', 1, '192.168.1.99', 'Google Chrome', 1642833063, 1511843974, 0, 0, 0, 0, 1, 1, 0, '0', '0'),
+(1, 'admin', 'ENGINEGPHASH', 'Admin', 'Host', 'Game', 'host@mail.ru', '', '', '', 1, '', 1000, '', 'admin', '', 1, '192.168.1.99', 'Google Chrome', 1642833063, 1511843974, 0, 0, 0, 0, 1, 1, 0, '0', '0');
 
 -- --------------------------------------------------------
 
@@ -1623,9 +1588,9 @@ INSERT INTO `users` (`id`, `login`, `passwd`, `name`, `lastname`, `patronymic`, 
 -- Структура таблицы `web`
 --
 
-CREATE TABLE IF NOT EXISTS `web` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `web` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT 0,
   `type` varchar(20) NOT NULL,
   `desing` varchar(32) NOT NULL DEFAULT '',
   `server` int(11) NOT NULL,
@@ -1635,10 +1600,9 @@ CREATE TABLE IF NOT EXISTS `web` (
   `passwd` varchar(32) NOT NULL DEFAULT '',
   `config` text NOT NULL,
   `login` varchar(32) NOT NULL DEFAULT '',
-  `update` int(11) NOT NULL DEFAULT '0',
-  `date` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+  `update` int(11) NOT NULL DEFAULT 0,
+  `date` int(11) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1646,14 +1610,13 @@ CREATE TABLE IF NOT EXISTS `web` (
 -- Структура таблицы `wiki`
 --
 
-CREATE TABLE IF NOT EXISTS `wiki` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `wiki` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `cat` int(11) NOT NULL,
   `tags` varchar(100) NOT NULL,
-  `date` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `wiki`
@@ -1672,12 +1635,11 @@ INSERT INTO `wiki` (`id`, `name`, `cat`, `tags`, `date`) VALUES
 -- Структура таблицы `wiki_answer`
 --
 
-CREATE TABLE IF NOT EXISTS `wiki_answer` (
-  `wiki` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `wiki_answer` (
+  `wiki` int(11) NOT NULL,
   `cat` int(11) NOT NULL,
-  `text` text NOT NULL,
-  PRIMARY KEY (`wiki`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `text` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `wiki_answer`
@@ -1696,12 +1658,11 @@ INSERT INTO `wiki_answer` (`wiki`, `cat`, `text`) VALUES
 -- Структура таблицы `wiki_category`
 --
 
-CREATE TABLE IF NOT EXISTS `wiki_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `wiki_category` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `sort` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `sort` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Дамп данных таблицы `wiki_category`
@@ -1714,6 +1675,879 @@ INSERT INTO `wiki_category` (`id`, `name`, `sort`) VALUES
 (4, 'Counter-Strike Global Ofensive', 5),
 (5, 'SAMP', 6),
 (6, 'Вопросы общего характера', 1);
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `address_buy`
+--
+ALTER TABLE `address_buy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_crmp`
+--
+ALTER TABLE `admins_crmp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_cs`
+--
+ALTER TABLE `admins_cs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_csgo`
+--
+ALTER TABLE `admins_csgo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_css`
+--
+ALTER TABLE `admins_css`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_cssold`
+--
+ALTER TABLE `admins_cssold`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_mc`
+--
+ALTER TABLE `admins_mc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_mta`
+--
+ALTER TABLE `admins_mta`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_rust`
+--
+ALTER TABLE `admins_rust`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `admins_samp`
+--
+ALTER TABLE `admins_samp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `api`
+--
+ALTER TABLE `api`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `auth`
+--
+ALTER TABLE `auth`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `boost`
+--
+ALTER TABLE `boost`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `boost_rating`
+--
+ALTER TABLE `boost_rating`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `cashback`
+--
+ALTER TABLE `cashback`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control`
+--
+ALTER TABLE `control`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_admins_cs`
+--
+ALTER TABLE `control_admins_cs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_admins_csgo`
+--
+ALTER TABLE `control_admins_csgo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_admins_css`
+--
+ALTER TABLE `control_admins_css`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_admins_cssold`
+--
+ALTER TABLE `control_admins_cssold`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_boost`
+--
+ALTER TABLE `control_boost`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_copy`
+--
+ALTER TABLE `control_copy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_crontab`
+--
+ALTER TABLE `control_crontab`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_firewall`
+--
+ALTER TABLE `control_firewall`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_plugins_buy`
+--
+ALTER TABLE `control_plugins_buy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_plugins_install`
+--
+ALTER TABLE `control_plugins_install`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `control_servers`
+--
+ALTER TABLE `control_servers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `copy`
+--
+ALTER TABLE `copy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `crontab`
+--
+ALTER TABLE `crontab`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `firewall`
+--
+ALTER TABLE `firewall`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `graph`
+--
+ALTER TABLE `graph`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `graph_day`
+--
+ALTER TABLE `graph_day`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `graph_hour`
+--
+ALTER TABLE `graph_hour`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `help`
+--
+ALTER TABLE `help`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `help_dialogs`
+--
+ALTER TABLE `help_dialogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `help_upload`
+--
+ALTER TABLE `help_upload`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `logs_sys`
+--
+ALTER TABLE `logs_sys`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `maps`
+--
+ALTER TABLE `maps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `owners`
+--
+ALTER TABLE `owners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `panel`
+--
+ALTER TABLE `panel`
+  ADD KEY `address` (`address`);
+
+--
+-- Индексы таблицы `plugins`
+--
+ALTER TABLE `plugins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_buy`
+--
+ALTER TABLE `plugins_buy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_category`
+--
+ALTER TABLE `plugins_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_clear`
+--
+ALTER TABLE `plugins_clear`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_config`
+--
+ALTER TABLE `plugins_config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_delete`
+--
+ALTER TABLE `plugins_delete`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_delete_ins`
+--
+ALTER TABLE `plugins_delete_ins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_install`
+--
+ALTER TABLE `plugins_install`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_update`
+--
+ALTER TABLE `plugins_update`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_write`
+--
+ALTER TABLE `plugins_write`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `plugins_write_del`
+--
+ALTER TABLE `plugins_write_del`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `privileges`
+--
+ALTER TABLE `privileges`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `privileges_buy`
+--
+ALTER TABLE `privileges_buy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `privileges_list`
+--
+ALTER TABLE `privileges_list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `promo`
+--
+ALTER TABLE `promo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `promo_use`
+--
+ALTER TABLE `promo_use`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `recovery`
+--
+ALTER TABLE `recovery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `security`
+--
+ALTER TABLE `security`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `servers`
+--
+ALTER TABLE `servers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `signup`
+--
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `tarifs`
+--
+ALTER TABLE `tarifs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `tests`
+--
+ALTER TABLE `tests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `units`
+--
+ALTER TABLE `units`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `web`
+--
+ALTER TABLE `web`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `wiki`
+--
+ALTER TABLE `wiki`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `wiki_answer`
+--
+ALTER TABLE `wiki_answer`
+  ADD PRIMARY KEY (`wiki`);
+
+--
+-- Индексы таблицы `wiki_category`
+--
+ALTER TABLE `wiki_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `address_buy`
+--
+ALTER TABLE `address_buy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_crmp`
+--
+ALTER TABLE `admins_crmp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_cs`
+--
+ALTER TABLE `admins_cs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_csgo`
+--
+ALTER TABLE `admins_csgo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_css`
+--
+ALTER TABLE `admins_css`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_cssold`
+--
+ALTER TABLE `admins_cssold`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_mc`
+--
+ALTER TABLE `admins_mc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_mta`
+--
+ALTER TABLE `admins_mta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_rust`
+--
+ALTER TABLE `admins_rust`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `admins_samp`
+--
+ALTER TABLE `admins_samp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `api`
+--
+ALTER TABLE `api`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `auth`
+--
+ALTER TABLE `auth`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `boost`
+--
+ALTER TABLE `boost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `boost_rating`
+--
+ALTER TABLE `boost_rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `cashback`
+--
+ALTER TABLE `cashback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control`
+--
+ALTER TABLE `control`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_admins_cs`
+--
+ALTER TABLE `control_admins_cs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_boost`
+--
+ALTER TABLE `control_boost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_copy`
+--
+ALTER TABLE `control_copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_crontab`
+--
+ALTER TABLE `control_crontab`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_firewall`
+--
+ALTER TABLE `control_firewall`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_plugins_buy`
+--
+ALTER TABLE `control_plugins_buy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_plugins_install`
+--
+ALTER TABLE `control_plugins_install`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `control_servers`
+--
+ALTER TABLE `control_servers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `copy`
+--
+ALTER TABLE `copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `crontab`
+--
+ALTER TABLE `crontab`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `firewall`
+--
+ALTER TABLE `firewall`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `graph`
+--
+ALTER TABLE `graph`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `graph_day`
+--
+ALTER TABLE `graph_day`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `graph_hour`
+--
+ALTER TABLE `graph_hour`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `help`
+--
+ALTER TABLE `help`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `help_dialogs`
+--
+ALTER TABLE `help_dialogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `help_upload`
+--
+ALTER TABLE `help_upload`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `logs_sys`
+--
+ALTER TABLE `logs_sys`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `maps`
+--
+ALTER TABLE `maps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT для таблицы `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `owners`
+--
+ALTER TABLE `owners`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins`
+--
+ALTER TABLE `plugins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_buy`
+--
+ALTER TABLE `plugins_buy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_category`
+--
+ALTER TABLE `plugins_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_clear`
+--
+ALTER TABLE `plugins_clear`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_config`
+--
+ALTER TABLE `plugins_config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_delete`
+--
+ALTER TABLE `plugins_delete`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_delete_ins`
+--
+ALTER TABLE `plugins_delete_ins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_install`
+--
+ALTER TABLE `plugins_install`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1967;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_update`
+--
+ALTER TABLE `plugins_update`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_write`
+--
+ALTER TABLE `plugins_write`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+
+--
+-- AUTO_INCREMENT для таблицы `plugins_write_del`
+--
+ALTER TABLE `plugins_write_del`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `privileges`
+--
+ALTER TABLE `privileges`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `privileges_buy`
+--
+ALTER TABLE `privileges_buy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `privileges_list`
+--
+ALTER TABLE `privileges_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `promo`
+--
+ALTER TABLE `promo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `promo_use`
+--
+ALTER TABLE `promo_use`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `recovery`
+--
+ALTER TABLE `recovery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `security`
+--
+ALTER TABLE `security`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `servers`
+--
+ALTER TABLE `servers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `signup`
+--
+ALTER TABLE `signup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `tarifs`
+--
+ALTER TABLE `tarifs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT для таблицы `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `tests`
+--
+ALTER TABLE `tests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `units`
+--
+ALTER TABLE `units`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `web`
+--
+ALTER TABLE `web`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `wiki`
+--
+ALTER TABLE `wiki`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `wiki_answer`
+--
+ALTER TABLE `wiki_answer`
+  MODIFY `wiki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `wiki_category`
+--
+ALTER TABLE `wiki_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
